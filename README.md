@@ -1,7 +1,5 @@
-# Rape-Senpai
+# hinanogame
 
-雷普先輩
-
-新概念 Homo 遊戲，2024/11/14 更新至原專案最新版本
-
-https://rape.konnokai.me
+hinano的厄介小遊戲
+依照孤之界所
+做的遊戲改的
