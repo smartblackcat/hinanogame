@@ -572,7 +572,28 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
             reader.readAsDataURL(dom.files[0]);
         }
     }
+    const bgMusic = document.getElementById('bg-music');
+    // 確保音樂在頁面加載時嘗試播放
+    window.addEventListener('load', () => {
+    bgMusic.play().catch((error) => {
+        console.log('背景音樂播放被阻止:', error);
+    });
+    });
+    const volumeSlider = document.getElementById('volume-slider');
+    volumeSlider.addEventListener('input', (event) => {
+    bgMusic.volume = event.target.value;
+    });
 
+    // 切換背景音樂播放/暫停
+    function toggleMusic() {
+        if (bgMusic.paused) {
+        bgMusic.play();
+        document.getElementById('toggle-music').textContent = '🎵 Pause Music';
+        } else {
+            bgMusic.pause();
+            document.getElementById('toggle-music').textContent = '🎵 Play Music';
+        }
+    }
 
     w.getClickBeforeImage = function() {
         $('#click-before-image').click();
