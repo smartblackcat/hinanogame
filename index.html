@@ -1,25 +1,23 @@
-
-
 <!DOCTYPE html>
 <html>
 
 <head>
-    <title>無聊小遊戲</title>
-    <meta itemprop="name" content="無聊小遊戲" />
+    <title>OreApo小遊戲</title>
+    <meta itemprop="name" content="OreApo小遊戲" />
     <meta itemprop="description" content="小遊戲" />
     <meta charset="utf-8" />
     <meta name="viewport" content="initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0, width=device-width,target-densitydpi=device-dpi" />
 	
 	<meta name="author" content="大橘"> 
     <!-- 參考孤之輩所做的遊戲 -->
-	<meta name="description" content="無聊小遊戲">
+	<meta name="description" content="OreApo小遊戲">
 
 	<meta name="twitter:card" content="summary" />
 	<meta name="twitter:site" content="@hinano_tachiba7" />
 	<meta name="twitter:creator" content="@hinano_tachiba7" />
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content="https://smartblackcat.github.io/hinanogame/" />
-	<meta property="og:title" content="無聊小遊戲">
+	<meta property="og:title" content="OreApo小遊戲">
 	<meta property="og:description" content="hinano小遊戲">
 	<meta property="og:image" content="static/image/ClickBefore.png">
 
@@ -37,6 +35,7 @@
 
     <!-- 背景音樂控制按鈕 -->
     <button id="toggle-music" onclick="toggleMusic()" style="position: absolute; top: 10px; right: 10px; z-index: 1000;">🎵 Toggle Music</button>
+    <input type="range" id="volume-slider" min="0" max="1" step="0.01" value="0.5" style="position: absolute; top: 50px; right: 10px; z-index: 1000;">
 
     <div id="GameScoreLayer" class="BBOX SHADE bgc1" style="display:none;">
         <div style="padding:5%;margin-top: 200px;background-color: rgba(202, 0, 24, 0.3);">
@@ -72,8 +71,7 @@
                     </div>
                     <br />
                     <div style="font-size:1em; color:#fff; line-height:1.5em;">
-                        (支援用鍵盤遊玩! 可以到下方遊戲設定按鈕確認及更換按鍵)<br />
-                        (也可以用滑鼠或是手機直接點擊來遊玩)<br />
+                        (可以用鍵盤、滑鼠、手機遊玩!!)<br />
                     </div>
                 </div>
                 <div id="btn_group" class="container text-nowrap">
@@ -139,3 +137,4 @@
 </body>
 
 </html>
+
