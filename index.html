@@ -1,26 +1,27 @@
 
+
 <!DOCTYPE html>
 <html>
 
 <head>
-    <title>OreApo小遊戲</title>
-    <meta itemprop="name" content="OreApo小遊戲" />
+    <title>無聊小遊戲</title>
+    <meta itemprop="name" content="無聊小遊戲" />
     <meta itemprop="description" content="小遊戲" />
     <meta charset="utf-8" />
     <meta name="viewport" content="initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0, width=device-width,target-densitydpi=device-dpi" />
 	
 	<meta name="author" content="大橘"> 
-    <!-- 參考孤之界所做的遊戲 -->
-	<meta name="description" content="OreApo小遊戲">
+    <!-- 參考孤之輩所做的遊戲 -->
+	<meta name="description" content="無聊小遊戲">
 
 	<meta name="twitter:card" content="summary" />
 	<meta name="twitter:site" content="@hinano_tachiba7" />
 	<meta name="twitter:creator" content="@hinano_tachiba7" />
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content="https://smartblackcat.github.io/hinanogame/" />
-	<meta property="og:title" content="OreApo小遊戲">
+	<meta property="og:title" content="無聊小遊戲">
 	<meta property="og:description" content="hinano小遊戲">
-	<meta property="og:image" content="https://github.com/smartblackcat/hinanogame/blob/06bbacaaca7da8fb927fe99df7b615fdfc31a2b9/static/image/ClickBefore.png?v=2">
+	<meta property="og:image" content="static/image/ClickBefore.png">
 
     <link href="./static/index.css" rel="stylesheet" type="text/css">
     <link href="./static/bootstrap.min.css" rel="stylesheet">
@@ -31,6 +32,12 @@
 </head>
 
 <body onLoad="init()" oncontextmenu=self.event.returnValue=false>
+    <!-- 添加背景音樂 -->
+    <audio id="bg-music" src="static/sound/background-music.mp3" loop></audio>
+
+    <!-- 背景音樂控制按鈕 -->
+    <button id="toggle-music" onclick="toggleMusic()" style="position: absolute; top: 10px; right: 10px; z-index: 1000;">🎵 Toggle Music</button>
+
     <div id="GameScoreLayer" class="BBOX SHADE bgc1" style="display:none;">
         <div style="padding:5%;margin-top: 200px;background-color: rgba(202, 0, 24, 0.3);">
             <div id="GameScoreLayer-text"></div>
@@ -48,7 +55,7 @@
             </div>
             <button type="button" class="btn btn-secondary btn-lg" id="replay" onclick="replayBtn()" data-i18n="again">AGAIN-I18N</button>
             <button type="button" class="btn btn-secondary btn-lg" onclick="window.location.reload()" data-i18n="home">HOME-I18N</button>
-            <button type="button" class="btn btn-secondary btn-lg" onclick="window.location.href='https://github.com/smartblackcat/hinanogame.git?v=2'" data-i18n="repo">REPO-I18N</button>
+            <button type="button" class="btn btn-secondary btn-lg" onclick="window.location.href='https://github.com/smartblackcat/hinanogame.git'" data-i18n="repo">REPO-I18N</button>
         </div>
     </div>
     </div>
@@ -65,7 +72,8 @@
                     </div>
                     <br />
                     <div style="font-size:1em; color:#fff; line-height:1.5em;">
-                        (可以用鍵盤、滑鼠、手機遊玩!!)<br />
+                        (支援用鍵盤遊玩! 可以到下方遊戲設定按鈕確認及更換按鍵)<br />
+                        (也可以用滑鼠或是手機直接點擊來遊玩)<br />
                     </div>
                 </div>
                 <div id="btn_group" class="container text-nowrap">
@@ -103,7 +111,31 @@
             </div>
         </div>
     </div>
+
+    <!-- JavaScript -->
+    <script>
+        // 背景音樂控制
+        const bgMusic = document.getElementById('bg-music');
+
+        // 初始化背景音樂播放
+        window.addEventListener('load', () => {
+            bgMusic.play().catch((error) => {
+                console.log('背景音樂播放失敗:', error);
+            });
+        });
+
+        // 切換背景音樂播放狀態
+        function toggleMusic() {
+            if (bgMusic.paused) {
+                bgMusic.play();
+                document.getElementById('toggle-music').textContent = '🎵 Pause Music';
+            } else {
+                bgMusic.pause();
+                document.getElementById('toggle-music').textContent = '🎵 Play Music';
+            }
+        }
+    </script>
     <script src="./static/index.js"></script>
-    </body>
+</body>
 
 </html>
